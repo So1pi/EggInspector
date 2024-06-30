@@ -14,7 +14,7 @@ class EggDataset(Dataset):
             T.RandomRotation(degrees=(-45, 45), fill=(0,)),
             T.ColorJitter(brightness=0.5, contrast=0.5, saturation=0.5, hue=0.5)
         ])  # 데이터 변환을 self.transform으로 설정
-        self.data_path = data_pathIn
+        self.data_path = data_path
         self.imgs = sorted(os.listdir(os.path.join(self.data_path, '01.원천데이터', 'TS_02. COLOR')))
         self.num_classes = 6
 
