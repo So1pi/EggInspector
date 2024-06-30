@@ -51,6 +51,7 @@ This repository implements egg object detection using Faster R-CNN with a ResNet
 ## Data Transformations
 
 ### Training
+![image](https://github.com/So1pi/EggInspector/assets/173986541/71825007-2ee1-4e46-95f6-9703b4865e55)
 
 - Random Rotation: [-45, 45] degrees
 - Color Adjustments: Brightness=0.5, Contrast=0.5, Saturation=0.5, Hue=0.5
