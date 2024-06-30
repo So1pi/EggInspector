@@ -2,82 +2,79 @@
 
 This repository implements egg object detection using Faster R-CNN with a ResNet-50 backbone.
 
-
 ![image](https://github.com/So1pi/EggInspector/assets/173986541/c27eed6d-7f54-4f0f-903a-5e20aa33bed5)
-
-
 
 ## Configuration
 
-- **GPU 개수:** 4
-- **아키텍처:**
-  - 유형: Faster R-CNN
-  - 백본: ResNet-50
-- **클래스 개수:** 6
+- **Number of GPUs:** 4
+- **Architecture:**
+  - Type: Faster R-CNN
+  - Backbone: ResNet-50
+- **Number of Classes:** 6
 
-## 데이터 로더
+## Data Loader
 
-- **유형:** EggDataLoader
-- **인수:**
-  - 데이터 디렉토리: "data/"
-  - 배치 크기: 1024
-  - 셔플: True
-  - 검증 분할: 0.1
-  - 워커 수: 4
+- **Type:** EggDataLoader
+- **Arguments:**
+  - Data Directory: "data/"
+  - Batch Size: 1024
+  - Shuffle: True
+  - Validation Split: 0.1
+  - Number of Workers: 4
 
-## 옵티마이저
+## Optimizer
 
-- **유형:** SGD
-- **인수:**
-  - 학습률: 0.005
-  - 모멘텀: 0.9
-  - 가중치 감소: 0.005
+- **Type:** SGD
+- **Arguments:**
+  - Learning Rate: 0.005
+  - Momentum: 0.9
+  - Weight Decay: 0.005
 
-## 손실 함수
+## Loss Function
 
-- 크로스 엔트로피 손실
+- Cross-Entropy Loss
 
-## 평가 지표
+## Evaluation Metrics
 
-- 정밀도, 재현율, F1 점수
+- Precision, Recall, F1 Score
 
-## 학습률 스케줄러
+## Learning Rate Scheduler
 
-- **유형:** StepLR
-- **인수:**
-  - 스텝 크기: 50
-  - 감마: 0.1
+- **Type:** StepLR
+- **Arguments:**
+  - Step Size: 50
+  - Gamma: 0.1
 
-## 데이터 변환
+## Data Transformations
 
-### 훈련
+### Training
 
-- 랜덤 회전: [-45, 45] 도
-- 컬러 조정: 밝기=0.5, 대조=0.5, 채도=0.5, 색조=0.5
+- Random Rotation: [-45, 45] degrees
+- Color Adjustments: Brightness=0.5, Contrast=0.5, Saturation=0.5, Hue=0.5
 
-### 테스트
+### Testing
 
-- 리사이즈: 크기=256
-- 중앙 크롭: 크기=224
+- Resize: Size=256
+- Center Crop: Size=224
 
-## 트레이너
+## Trainer
 
-- **에포크:** 10
-- **저장 디렉토리:** "saved/"
-- **저장 주기:** 매 에포크마다 모델 저장
-- **상세도:** 레벨 2
-- **모니터링:** 최소 검증 손실
-- **얼리 스탑:** 10 에포크 기다림
-- **텐서보드:** 활성화됨
+- **Epochs:** 10
+- **Save Directory:** "saved/"
+- **Save Frequency:** Save model every epoch
+- **Verbosity:** Level 2
+- **Monitoring:** Minimize Validation Loss
+- **Early Stopping:** Wait 10 epochs before stopping
+- **TensorBoard:** Enabled
 
-## 기타
+## Miscellaneous
 
-- **데이터 경로:** AI-hub 계란 데이터
-- **배치 크기:** 4
-- **콜레이트 함수:** collate_fn_custom
-- **클래스 개수:** 6
-- **클래스 가중치:** [1.0, 1.5, 1.0, 1.0, 1.0, 1.0]
+- **Data Path:** AI-hub Egg Dataset
+- **Batch Size:** 4
+- **Collate Function:** collate_fn_custom
+- **Number of Classes:** 6
+- **Class Weights:** [1.0, 1.5, 1.0, 1.0, 1.0, 1.0]
 
 ---
 
-이 프로젝트는 ResNet-50 백본을 사용한 Faster R-CNN을 통해 다양한 계란 객체를 효과적으로 탐지하는 것을 목표로 합니다. 제공된 설정은 특정 데이터셋에서 모델을 효율적으로 훈련하고 평가하는 데 필요한 요소들을 포함하고 있습니다.
+This project aims to effectively detect various egg objects using Faster R-CNN with a ResNet-50 backbone. The provided configuration includes essential elements for training and evaluating the model on a specific dataset.
