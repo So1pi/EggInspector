@@ -69,7 +69,7 @@ This repository implements egg object detection using Faster R-CNN with a ResNet
 
 ## Miscellaneous
 
-- **Data Path:** AI-hub Egg Dataset
+- **Data Path:** [AI-hub Egg Dataset](https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&dataSetSn=71504)
 - **Batch Size:** 4
 - **Collate Function:** collate_fn_custom
 - **Number of Classes:** 6
