@@ -2,6 +2,11 @@
 
 This repository implements egg object detection using Faster R-CNN with a ResNet-50 backbone.
 
+
+![image](https://github.com/So1pi/EggInspector/assets/173986541/c27eed6d-7f54-4f0f-903a-5e20aa33bed5)
+
+
+
 ## Configuration
 
 - **GPU 개수:** 4
