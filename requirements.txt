@@ -1,0 +1,8 @@
+torch>=1.1
+torchvision~=0.15.2
+numpy~=1.24.3
+tqdm~=4.66.4
+tensorboard>=1.14
+
+pillow~=10.3.0
+beautifulsoup4~=4.12.3

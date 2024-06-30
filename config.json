@@ -1,0 +1,62 @@
+{
+    "name": "Egg_Inspector",
+    "n_gpu": 4,
+    "arch": {
+        "type": "FasterRCNN",
+        "args": {
+            "backbone": "resnet50",
+            "num_classes": 6
+        }
+    },
+    "data_loader": {
+        "type": "EggDataLoader",
+        "args": {
+            "data_dir": "data/",
+            "batch_size": 1024,
+            "shuffle": true,
+            "validation_split": 0.1,
+            "num_workers": 4
+        }
+    },
+    "optimizer": {
+        "type": "SGD",
+        "args": {
+            "lr": 0.005,
+            "momentum": 0.9,
+            "weight_decay": 0.005
+        }
+    },
+    "loss": "CrossEntropyLoss",
+    "metrics": ["precision", "recall", "f1"],
+    "lr_scheduler": {
+        "type": "StepLR",
+        "args": {
+            "step_size": 50,
+            "gamma": 0.1
+        }
+    },
+    "data_transforms": {
+    "train": [
+        {"type": "RandomRotation", "args": {"degrees": [-45, 45]}},
+        {"type": "ColorJitter", "args": {"brightness": 0.5, "contrast": 0.5, "saturation": 0.5, "hue": 0.5}}
+    ],
+    "test": [
+        {"type": "Resize", "args": {"size": 256}},
+        {"type": "CenterCrop", "args": {"size": 224}}
+    ]
+    },
+    "trainer": {
+        "epochs": 10,
+        "save_dir": "saved/",
+        "save_period": 1,
+        "verbosity": 2,
+        "monitor": "min val_loss",
+        "early_stop": 10,
+        "tensorboard": true
+    },
+    "data_path": "D:/248.계란 데이터/01.데이터/Training",
+    "batch_size": 4,
+    "collate_fn": "collate_fn_custom",
+    "num_classes": 6,
+    "class_weights": [1.0, 1.5, 1.0, 1.0, 1.0, 1.0]
+}
